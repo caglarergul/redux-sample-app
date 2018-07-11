@@ -16,6 +16,13 @@ const rootReducer = (state = initialState, action) => {
         }
     }
 
+    if (action.type === 'DEC_COUNTER') {
+        return {
+            ...state,
+            counter: state.counter - 1
+        }
+    }
+
     if (action.type === 'ADD_COUNTER') {
         return {
             ...state,
@@ -41,6 +48,7 @@ store.subscribe(() => {
 // Dispatching Action
 store.dispatch({type: 'INC_COUNTER'});
 store.dispatch({type: 'ADD_COUNTER', value: 10});
+store.dispatch({type: 'DECREMENT'});
 console.log(store.getState());
 
 
